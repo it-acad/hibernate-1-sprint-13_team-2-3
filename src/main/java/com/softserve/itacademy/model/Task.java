@@ -18,7 +18,7 @@ public class Task {
     @Enumerated(EnumType.STRING)
     private Priority priority;
 
-    @ManyToOne
+    @OneToOne
     @JoinColumn(name = "todo_id")
     private ToDo toDo;
 

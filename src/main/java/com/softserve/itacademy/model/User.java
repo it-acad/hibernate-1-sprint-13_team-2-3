@@ -2,6 +2,8 @@ package com.softserve.itacademy.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import java.math.BigInteger;
 import java.util.List;
 
@@ -13,11 +15,14 @@ public class User  {
     private BigInteger id;
 
     @Email
+    @NotBlank
     private String email;
 
+    @Pattern(regexp = "/^[A-Z]")
     private String firstName;
 
     private String lastName;
+
 
     private String password;
 
@@ -28,23 +33,23 @@ public class User  {
     private List<ToDo> toDoList;
 
 
+    public BigInteger getId() {
+        return id;
+    }
+
     @JoinTable(
             name = "todo_collaborator",
             joinColumns = @JoinColumn(
-                    name = "todo_id",
-                    referencedColumnName = "collaboration_todo"
+                    name = "collaborator_id",
+                    referencedColumnName = "id"
             ),
             inverseJoinColumns = @JoinColumn(
-                    name = "collaborator_id",
-                    referencedColumnName = "collaborators"
+                    name = "todo_id",
+                    referencedColumnName = "id"
             )
     )
     @ManyToMany
     private List<ToDo> collaboration_todo;
-
-    public BigInteger getId() {
-        return id;
-    }
 
     public void setId(BigInteger id) {
         this.id = id;
