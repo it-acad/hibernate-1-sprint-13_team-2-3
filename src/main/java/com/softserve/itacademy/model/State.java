@@ -27,18 +27,4 @@ public class State {
         this.name = name;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        State state = (State) o;
-        return id == state.id &&
-                Objects.equals(name, state.name);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id, name);
-    }
 }

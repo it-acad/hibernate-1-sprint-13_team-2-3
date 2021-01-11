@@ -121,7 +121,7 @@ public class UserTests {
         user.setEmail(validUser.getEmail());
         user.setFirstName("Valid-Name");
         user.setLastName(input);
-        user.setPassword("qwQW12!@");
+        user.setPassword(validUser.getPassword());
         user.setRole(traineeRole);
 
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
@@ -144,10 +144,10 @@ public class UserTests {
     void constraintViolationInvalidPassword(String input, String errorValue) {
         User user = new User();
         user.setEmail(validUser.getEmail());
-        user.setFirstName("Valid-Name");
-        user.setLastName("Valid-Lastname");
+        user.setFirstName(validUser.getFirstName());
+        user.setLastName(validUser.getLastName());
         user.setPassword(input);
-        user.setRole(traineeRole);
+        user.setRole(validUser.getRole());
 
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();

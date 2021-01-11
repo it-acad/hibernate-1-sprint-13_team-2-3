@@ -29,13 +29,6 @@ public class Task {
     public Task() {
     }
 
-    public Task(@Length(min = 3, max = 200) String name, Priority priority, ToDo toDo, State state) {
-        this.name = name;
-        this.priority = priority;
-        this.toDo = toDo;
-        this.state = state;
-    }
-
     public BigInteger getId() {
         return id;
     }
@@ -72,21 +65,4 @@ public class Task {
         this.state = state;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Task task = (Task) o;
-        return id == task.id &&
-                Objects.equals(name, task.name) &&
-                priority == task.priority &&
-                Objects.equals(toDo, task.toDo) &&
-                Objects.equals(state, task.state);
-    }
-
-    @Override
-    public int hashCode() {
-
-        return Objects.hash(id, name, priority, toDo, state);
-    }
 }

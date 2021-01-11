@@ -1,5 +1,6 @@
 package com.softserve.itacademy.model;
 
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
@@ -17,12 +18,25 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
 public class TaskTests {
+    private static Task validTask;
+
+    @BeforeAll
+    static void init(){
+        validTask = new Task();
+        validTask.setName("task");
+        validTask.setPriority(Priority.HIGH);
+        validTask.setState(new State());
+        validTask.setToDo(new ToDo());
+    }
 
     @ParameterizedTest
     @MethodSource("provideInvalidTaskName")
     void constraintViolationInvalid(String input, String errorValue) {
         Task task = new Task();
         task.setName(input);
+        task.setPriority(validTask.getPriority());
+        task.setState(validTask.getState());
+        task.setToDo(validTask.getToDo());
 
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
