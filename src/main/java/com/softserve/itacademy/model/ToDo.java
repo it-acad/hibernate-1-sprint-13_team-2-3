@@ -23,6 +23,9 @@ public class ToDo {
     @ManyToMany(mappedBy = "collaboration_todo")
     private List<User> collaborators;
 
+    @OneToMany
+    private List<Task> taskList;
+
     @ManyToOne
     private User owner;
 

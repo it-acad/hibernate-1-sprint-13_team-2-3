@@ -15,9 +15,11 @@ public class Task {
     @Length(min = 2, max = 200)
     private String name;
 
+    @Enumerated(EnumType.STRING)
     private Priority priority;
 
-    @OneToOne
+    @ManyToOne
+    @JoinColumn(name = "todo_id")
     private ToDo toDo;
 
     @OneToOne(cascade = CascadeType.ALL)

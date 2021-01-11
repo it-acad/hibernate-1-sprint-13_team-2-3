@@ -27,18 +27,18 @@ public class User  {
     @OneToMany
     private List<ToDo> toDoList;
 
-//
-//    @JoinTable(
-//            name = "todo_collaborator",
-//            joinColumns = @JoinColumn(
-//                    name = "todo_id",
-//                    referencedColumnName = "collaboration_todo"
-//            ),
-//            inverseJoinColumns = @JoinColumn(
-//                    name = "collaborator_id",
-//                    referencedColumnName = "collaborators"
-//            )
-//    )
+
+    @JoinTable(
+            name = "todo_collaborator",
+            joinColumns = @JoinColumn(
+                    name = "todo_id",
+                    referencedColumnName = "collaboration_todo"
+            ),
+            inverseJoinColumns = @JoinColumn(
+                    name = "collaborator_id",
+                    referencedColumnName = "collaborators"
+            )
+    )
     @ManyToMany
     private List<ToDo> collaboration_todo;
 
