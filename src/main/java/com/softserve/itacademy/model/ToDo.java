@@ -6,8 +6,10 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
+@Table(name = "todos")
 public class ToDo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -17,6 +19,9 @@ public class ToDo {
     private String title;
 
     private LocalDateTime createdAt;
+
+    @ManyToMany(mappedBy = "collaboration_todo")
+    private List<User> collaborators;
 
     @ManyToOne
     private User owner;

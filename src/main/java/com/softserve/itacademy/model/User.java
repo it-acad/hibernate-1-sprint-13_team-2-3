@@ -1,12 +1,7 @@
 package com.softserve.itacademy.model;
 
-import org.hibernate.annotations.GenericGenerator;
-
 import javax.persistence.*;
 import javax.validation.constraints.Email;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Pattern;
 import java.math.BigInteger;
 import java.util.List;
 
@@ -31,6 +26,21 @@ public class User  {
 
     @OneToMany
     private List<ToDo> toDoList;
+
+//
+//    @JoinTable(
+//            name = "todo_collaborator",
+//            joinColumns = @JoinColumn(
+//                    name = "todo_id",
+//                    referencedColumnName = "collaboration_todo"
+//            ),
+//            inverseJoinColumns = @JoinColumn(
+//                    name = "collaborator_id",
+//                    referencedColumnName = "collaborators"
+//            )
+//    )
+    @ManyToMany
+    private List<ToDo> collaboration_todo;
 
     public BigInteger getId() {
         return id;
