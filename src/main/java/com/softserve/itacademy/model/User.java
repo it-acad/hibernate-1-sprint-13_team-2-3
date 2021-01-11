@@ -9,6 +9,11 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import java.util.List;
 
+@Entity
 public class User  {
-    //TODO
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
+    @OneToMany
+    private List<ToDo> toDoList;
 }

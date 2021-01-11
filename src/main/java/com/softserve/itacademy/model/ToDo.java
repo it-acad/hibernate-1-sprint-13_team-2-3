@@ -10,7 +10,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 
-
+@Entity
 public class ToDo {
-//TODO
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int id;
 }
