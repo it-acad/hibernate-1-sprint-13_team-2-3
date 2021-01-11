@@ -3,6 +3,7 @@ package com.softserve.itacademy.model;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
+import java.math.BigInteger;
 import java.util.Objects;
 
 @Entity
@@ -10,7 +11,7 @@ import java.util.Objects;
 public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private BigInteger id;
 
     @Length(min = 3, max = 200)
     private String name;

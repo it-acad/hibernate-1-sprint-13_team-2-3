@@ -2,6 +2,7 @@ package com.softserve.itacademy.model;
 
 import javax.persistence.*;
 import javax.validation.constraints.Pattern;
+import java.math.BigInteger;
 import java.util.Objects;
 
 @Entity
@@ -9,7 +10,7 @@ import java.util.Objects;
 public class State {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private BigInteger id;
 
     @Pattern(regexp = "^[\\w\\s-]{1,20}$")
     private String name;
