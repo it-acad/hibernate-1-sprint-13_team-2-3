@@ -15,6 +15,10 @@ public class State {
     @Pattern(regexp = "^[\\w\\s-]{1,20}$")
     private String name;
 
+    public BigInteger getId() {
+        return id;
+    }
+
     public String getName() {
         return name;
     }

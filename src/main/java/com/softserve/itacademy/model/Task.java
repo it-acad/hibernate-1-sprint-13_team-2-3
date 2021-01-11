@@ -36,12 +36,8 @@ public class Task {
         this.state = state;
     }
 
-    public int getId() {
+    public BigInteger getId() {
         return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getName() {
