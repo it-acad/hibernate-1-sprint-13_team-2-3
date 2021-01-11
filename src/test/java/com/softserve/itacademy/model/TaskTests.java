@@ -16,7 +16,7 @@ import java.util.stream.Stream;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 @SpringBootTest
-public class TaskTasks {
+public class TaskTests {
 
     @ParameterizedTest
     @MethodSource("provideInvalidTaskName")
