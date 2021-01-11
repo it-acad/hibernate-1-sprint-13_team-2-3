@@ -18,7 +18,7 @@ public class User  {
     @NotBlank
     private String email;
 
-    @Pattern(regexp = "/^[A-Z]")
+//    @Pattern(regexp = "")
     private String firstName;
 
     private String lastName;
