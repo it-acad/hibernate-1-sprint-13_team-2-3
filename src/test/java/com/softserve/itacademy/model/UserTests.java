@@ -114,4 +114,53 @@ public class UserTests {
         );
     }
 
+    @ParameterizedTest
+    @MethodSource("provideInvalidLastNameUser")
+    void constraintViolationInvalidLastName(String input, String errorValue) {
+        User user = new User();
+        user.setEmail(validUser.getEmail());
+        user.setFirstName("Valid-Name");
+        user.setLastName(input);
+        user.setPassword("qwQW12!@");
+        user.setRole(traineeRole);
+
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        Validator validator = factory.getValidator();
+        Set<ConstraintViolation<User>> violations = validator.validate(user);
+        assertEquals(1, violations.size());
+        assertEquals(errorValue, violations.iterator().next().getInvalidValue());
+    }
+
+    private static Stream<Arguments> provideInvalidLastNameUser(){
+        return Stream.of(
+                Arguments.of("invalid", "invalid"),
+                Arguments.of("Invalid-", "Invalid-"),
+                Arguments.of("Invalid-invalid", "Invalid-invalid")
+        );
+    }
+
+    @ParameterizedTest
+    @MethodSource("provideInvalidPasswordUser")
+    void constraintViolationInvalidPassword(String input, String errorValue) {
+        User user = new User();
+        user.setEmail(validUser.getEmail());
+        user.setFirstName("Valid-Name");
+        user.setLastName("Valid-Lastname");
+        user.setPassword(input);
+        user.setRole(traineeRole);
+
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        Validator validator = factory.getValidator();
+        Set<ConstraintViolation<User>> violations = validator.validate(user);
+        assertEquals(1, violations.size());
+        assertEquals(errorValue, violations.iterator().next().getInvalidValue());
+    }
+
+    private static Stream<Arguments> provideInvalidPasswordUser(){
+        return Stream.of(
+                Arguments.of("password", "password"),
+                Arguments.of("password1234-", "password1234-"),
+                Arguments.of("pass1234word234", "pass1234word234")
+        );
+    }
 }
