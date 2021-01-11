@@ -18,12 +18,13 @@ public class User  {
     @NotBlank
     private String email;
 
-    @Pattern(regexp = "/^[A-Z]")
+    @Pattern(regexp = "^([A-Z])([a-z])+-([A-Z])([a-z])+$")
     private String firstName;
 
+    @Pattern(regexp = "^([A-Z])([a-z])+-([A-Z])([a-z])+$")
     private String lastName;
 
-
+    @Pattern(regexp = "^(?=.*\\d)(?=.*[a-z])(?=.*[!])(?=.*[A-Z]).{10,}$")
     private String password;
 
     @ManyToOne
