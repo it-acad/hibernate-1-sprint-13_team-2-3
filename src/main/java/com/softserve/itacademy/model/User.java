@@ -19,6 +19,7 @@ public class User  {
     private String email;
 
     @Pattern(regexp = "^([A-Z])([a-z])+-([A-Z])([a-z])+$")
+
     private String firstName;
 
     @Pattern(regexp = "^([A-Z])([a-z])+-([A-Z])([a-z])+$")

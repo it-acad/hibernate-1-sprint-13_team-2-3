@@ -13,7 +13,7 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private BigInteger id;
 
-    @Length(min = 2, max = 200)
+    @Length(min = 3, max = 200)
     private String name;
 
     @Enumerated(EnumType.STRING)
@@ -29,7 +29,7 @@ public class Task {
     public Task() {
     }
 
-    public Task(@Length(min = 2, max = 200) String name, Priority priority, ToDo toDo, State state) {
+    public Task(@Length(min = 3, max = 200) String name, Priority priority, ToDo toDo, State state) {
         this.name = name;
         this.priority = priority;
         this.toDo = toDo;
