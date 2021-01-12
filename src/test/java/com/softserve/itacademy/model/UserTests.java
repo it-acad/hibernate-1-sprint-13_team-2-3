@@ -163,4 +163,29 @@ public class UserTests {
                 Arguments.of("pass1234word234", "pass1234word234")
         );
     }
+
+    @ParameterizedTest
+    @MethodSource("provideValidPasswordUser")
+    void constraintViolationValidPassword(String input) {
+        User user = new User();
+        user.setEmail(validUser.getEmail());
+        user.setFirstName(validUser.getFirstName());
+        user.setLastName(validUser.getLastName());
+        user.setPassword(input);
+        user.setRole(validUser.getRole());
+
+        ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
+        Validator validator = factory.getValidator();
+        Set<ConstraintViolation<User>> violations = validator.validate(user);
+        assertEquals(0, violations.size());
+    }
+
+    private static Stream<Arguments> provideValidPasswordUser(){
+        return Stream.of(
+                Arguments.of("password21!Q_"),
+                Arguments.of("password3H13_!Q"),
+                Arguments.of("password!31QQ"),
+                Arguments.of("123456_!qQ")
+        );
+    }
 }
