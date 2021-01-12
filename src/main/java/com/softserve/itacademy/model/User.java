@@ -31,7 +31,7 @@ public class User  {
     @ManyToOne
     private Role role;
 
-    @OneToMany
+    @OneToMany(mappedBy = "owner")
     private List<ToDo> toDoList;
 
 

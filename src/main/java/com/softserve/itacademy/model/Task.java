@@ -22,7 +22,7 @@ public class Task {
     @JoinColumn(name = "todo_id")
     private ToDo toDo;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     private State state;
 
     public Task() {
