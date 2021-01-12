@@ -7,6 +7,7 @@ import javax.validation.constraints.NotNull;
 import java.math.BigInteger;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "todos")
@@ -23,8 +24,8 @@ public class ToDo {
     @ManyToMany(mappedBy = "collaboration_todo")
     private List<User> collaborators;
 
-    @OneToMany()
-    private List<Task> taskList;
+    @OneToMany(mappedBy = "toDo")
+    private Set<Task> taskList;
 
     @ManyToOne
     private User owner;

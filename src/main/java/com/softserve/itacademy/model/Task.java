@@ -4,12 +4,11 @@ import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
 import java.math.BigInteger;
-import java.util.Objects;
 
 @Entity
 @Table(name = "tasks")
 public class Task {
-    @Id
+    @Id()
     @GeneratedValue(strategy = GenerationType.AUTO)
     private BigInteger id;
 
@@ -19,7 +18,7 @@ public class Task {
     @Enumerated(EnumType.STRING)
     private Priority priority;
 
-    @OneToOne
+    @ManyToOne()
     @JoinColumn(name = "todo_id")
     private ToDo toDo;
 
@@ -47,14 +46,6 @@ public class Task {
 
     public void setPriority(Priority priority) {
         this.priority = priority;
-    }
-
-    public ToDo getToDo() {
-        return toDo;
-    }
-
-    public void setToDo(ToDo toDo) {
-        this.toDo = toDo;
     }
 
     public State getState() {

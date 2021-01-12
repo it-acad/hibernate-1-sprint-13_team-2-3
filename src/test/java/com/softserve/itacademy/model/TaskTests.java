@@ -1,7 +1,6 @@
 package com.softserve.itacademy.model;
 
 import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -26,7 +25,6 @@ public class TaskTests {
         validTask.setName("task");
         validTask.setPriority(Priority.HIGH);
         validTask.setState(new State());
-        validTask.setToDo(new ToDo());
     }
 
     @ParameterizedTest
@@ -36,7 +34,6 @@ public class TaskTests {
         task.setName(input);
         task.setPriority(validTask.getPriority());
         task.setState(validTask.getState());
-        task.setToDo(validTask.getToDo());
 
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
