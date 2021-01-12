@@ -25,7 +25,7 @@ public class User  {
     @Pattern(regexp = "^([A-Z])([a-z])+-([A-Z])([a-z])+$")
     private String lastName;
 
-    @Pattern(regexp = "^(?=.*\\d)(?=.*[a-z])(?=.*[!])(?=.*[_])(?=.*[A-Z]).{8,}$")
+    @Pattern(regexp = "^(?=.*\\d)(?=.*[a-z])(?=.*[!_@])(?=.*[A-Z]).{8,}$")
     private String password;
 
     @ManyToOne
