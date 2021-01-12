@@ -25,7 +25,7 @@ public class User  {
     @Pattern(regexp = "^([A-Z])([a-z])+-([A-Z])([a-z])+$")
     private String lastName;
 
-    @Pattern(regexp = "^(?=.*\\d)(?=.*[a-z])(?=.*[!])(?=.*[A-Z]).{8,}$")
+    @Pattern(regexp = "^(?=.*\\d)(?=.*[a-z])(?=.*[!])(?=.*[_])(?=.*[A-Z]).{8,}$")
     private String password;
 
     @ManyToOne
@@ -52,10 +52,6 @@ public class User  {
     )
     @ManyToMany
     private List<ToDo> collaboration_todo;
-
-    public void setId(BigInteger id) {
-        this.id = id;
-    }
 
     public String getEmail() {
         return email;
@@ -87,14 +83,6 @@ public class User  {
 
     public void setPassword(String password) {
         this.password = password;
-    }
-
-    public List<ToDo> getToDoList() {
-        return toDoList;
-    }
-
-    public void setToDoList(List<ToDo> toDoList) {
-        this.toDoList = toDoList;
     }
 
     public Role getRole() {

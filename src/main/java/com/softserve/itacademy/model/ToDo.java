@@ -34,10 +34,6 @@ public class ToDo {
         createdAt = LocalDateTime.now();
     }
 
-    public BigInteger getId() {
-        return id;
-    }
-
     public void setId(BigInteger id) {
         this.id = id;
     }
@@ -52,14 +48,6 @@ public class ToDo {
 
     public LocalDateTime getCreatedAt() {
         return createdAt;
-    }
-
-    public void setCreatedAt(LocalDateTime createdAt) {
-        this.createdAt = createdAt;
-    }
-
-    public User getOwner() {
-        return owner;
     }
 
     public void setOwner(User owner) {
