@@ -34,10 +34,6 @@ public class ToDo {
         createdAt = LocalDateTime.now();
     }
 
-    public void setId(BigInteger id) {
-        this.id = id;
-    }
-
     public String getTitle() {
         return title;
     }

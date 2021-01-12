@@ -19,7 +19,6 @@ public class User  {
     private String email;
 
     @Pattern(regexp = "^([A-Z])([a-z])+-([A-Z])([a-z])+$")
-
     private String firstName;
 
     @Pattern(regexp = "^([A-Z])([a-z])+-([A-Z])([a-z])+$")
@@ -35,9 +34,6 @@ public class User  {
     private List<ToDo> toDoList;
 
 
-    public BigInteger getId() {
-        return id;
-    }
 
     @JoinTable(
             name = "todo_collaborator",
@@ -52,6 +48,10 @@ public class User  {
     )
     @ManyToMany
     private List<ToDo> collaboration_todo;
+
+    public BigInteger getId() {
+        return id;
+    }
 
     public String getEmail() {
         return email;
