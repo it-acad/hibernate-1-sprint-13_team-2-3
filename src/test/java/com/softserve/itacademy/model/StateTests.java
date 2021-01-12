@@ -21,6 +21,7 @@ public class StateTests {
 
     @BeforeAll
     static void init(){
+        validState = new State();
         validState.setName("open");
     }
 

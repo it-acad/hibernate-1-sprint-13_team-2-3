@@ -24,15 +24,16 @@ class RoleTests {
 
     @BeforeAll
     static void init() {
+        validRole = new Role();
         validRole.setName("role");
-//        validRole.setUsers(new ArrayList<User>());
+        validRole.setUsers(new ArrayList<User>());
     }
 
     @Test
     void constraintViolationOnEmptyRoleName() {
         Role role = new Role();
         role.setName("");
-//        role.setUsers(validRole.getUsers());
+        role.setUsers(validRole.getUsers());
 
         ValidatorFactory factory = Validation.buildDefaultValidatorFactory();
         Validator validator = factory.getValidator();
